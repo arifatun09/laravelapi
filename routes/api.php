@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\ProgramController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,7 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
         return auth()->user();
     });
 
+    //Bagian 2 : Membuat REST API CRUD
     Route::resource('programs', ProgramController::class);
 
     Route::post('/logout', [AuthController::class, 'logout']);
